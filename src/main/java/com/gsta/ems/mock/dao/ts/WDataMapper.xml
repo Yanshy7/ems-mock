@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsta.ems.mock.dao.ts.WDataMapper">
+
+    <sql id="fields">
+        _ts,
+        id,
+        createtime,
+        nopow,
+        num,
+        uset
+    </sql>
+
+    <sql id="lastFields">
+         last(_ts) as _ts,
+         last(id) as id,
+         last(createtime) as createtime,
+         last(nopow) as nopow,
+         last(num) as num,
+         last(uset) as uset
+    </sql>
+
+    <sql id="values">
+        #{e.ts},
+        #{e.id},
+        #{e.createtime},
+        #{e.nopow},
+        #{e.num},
+        #{e.uset}
+    </sql>
+
+    <insert id="saveMockWData">
+        INSERT INTO ${tableName}
+        ( <include refid="fields"/> )
+        VALUES
+        ( <include refid="values"/> )
+    </insert>
+
+    <select id="queryLastRecord" resultType="com.gsta.ems.mock.entity.ts.PropertiesWModbus">
+        SELECT <include refid="lastFields" /> FROM ${tableName}
+    </select>
+</mapper>

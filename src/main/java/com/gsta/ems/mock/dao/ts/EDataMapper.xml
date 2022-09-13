@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsta.ems.mock.dao.ts.EDataMapper">
+
+    <sql id="fields">
+        _ts, id, createtime,
+        faev, baev, frev, brev,
+        pt, pa, pb, pc,
+        qt, qa, qb, qc,
+        st, sa, sb, sc,
+        pft, pfb, pfa, pfc,
+        va, vb, vc,
+        ca, cb, cc,
+        enf
+    </sql>
+
+    <sql id="lastFields">
+        last(_ts) as _ts, last(id) as id, last(createtime) as createtime,
+        last(faev) as faev, last(baev) as baev, last(frev) as frev, last(brev) as brev,
+        last(pt) as pt, last(pa) as pa, last(pb) as pb, last(pc) as pc,
+        last(qt) as qt, last(qa) as qa, last(qb) as qb, last(qc) as qc,
+        last(st) as st, last(sa) as sa, last(sb) as sb, last(sc) as sc,
+        last(pft) as pft, last(pfb) as pfb, last(pfa) as pfa, last(pfc) as pfc,
+        last(va) as va, last(vb) as vb, last(vc) as vc,
+        last(ca) as ca, last(cb) as cb, last(cc) as cc,
+        last(enf) as enf
+    </sql>
+
+    <sql id="values">
+        #{e.ts}, #{e.id}, #{e.createtime},
+        #{e.faev}, #{e.baev}, #{e.frev}, #{e.brev},
+        #{e.pt}, #{e.pa}, #{e.pb}, #{e.pc},
+        #{e.qt}, #{e.qa}, #{e.qb}, #{e.qc},
+        #{e.st}, #{e.sa}, #{e.sb}, #{e.sc},
+        #{e.pft}, #{e.pfb}, #{e.pfa}, #{e.pfc},
+        #{e.va}, #{e.vb}, #{e.vc},
+        #{e.ca}, #{e.cb}, #{e.cc}, #{e.enf}
+    </sql>
+
+    <insert id="saveMockEData">
+        INSERT INTO ${tableName}
+        ( <include refid="fields"/> )
+        VALUES
+        ( <include refid="values"/> )
+    </insert>
+
+    <select id="queryLastRecord" resultType="com.gsta.ems.mock.entity.ts.PropertiesEModbus">
+        SELECT <include refid="lastFields" /> FROM ${tableName}
+    </select>
+
+</mapper>

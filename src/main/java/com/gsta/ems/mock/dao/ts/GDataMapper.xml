@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsta.ems.mock.dao.ts.GDataMapper">
+
+    <sql id="fields">
+        _ts, id, createtime,
+        num, uset, hot, useh,
+        fr, hif,
+        ds, tem, pres
+    </sql>
+
+    <sql id="lastFields">
+        last(_ts) as _ts, last(id) as id, last(createtime) as createtime,
+        last(num) as num, last(uset) as uset, last(hot) as hot, last(useh) as useh,
+        last(fr) as fr, last(hif) as hif,
+        last(ds) as ds, last(tem) as tem, last(pres) as pres
+    </sql>
+
+    <sql id="values">
+        #{e.ts}, #{e.id}, #{e.createtime},
+        #{e.num}, #{e.uset}, #{e.hot}, #{e.useh},
+        #{e.fr}, #{e.hif},
+        #{e.ds}, #{e.tem}, #{e.pres}
+    </sql>
+
+    <insert id="saveMockGData">
+        INSERT INTO ${tableName}
+        ( <include refid="fields"/> )
+        VALUES
+        ( <include refid="values"/> )
+    </insert>
+
+    <select id="queryLastRecord" resultType="com.gsta.ems.mock.entity.ts.PropertiesGModbus">
+        SELECT <include refid="lastFields" /> FROM ${tableName}
+    </select>
+
+</mapper>

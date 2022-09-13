@@ -1,0 +1,28 @@
+server:
+  port: 8412
+
+# Logger Config
+logging:
+  level:
+    com.gsta.ems.mock.dao: debug
+
+spring:
+  datasource:
+    dynamic:
+      primary: ems-biz
+      strict: false
+      datasource:
+        ems-biz:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://183.56.196.43:3306/ems_biz?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+          username: test
+          password: obK_Zc@3Epf8p
+        jetlinks-ts:
+          driver-class-name: com.taosdata.jdbc.rs.RestfulDriver
+          url: jdbc:TAOS-RS://183.56.196.43:6041/jetlinks?user=root&password=taosdata
+          username: root
+          password: taosdata
+
+mybatis-plus:
+  - classpath:com/gsta/ems/mock/dao/*/*Mapper.xml
+

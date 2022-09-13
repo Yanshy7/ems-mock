@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsta.ems.mock.dao.ts.TableMapper">
+
+    <update id="createTable">
+        CREATE TABLE IF NOT EXISTS ${tableName} USING ${sTableName} TAGS ('${deviceid}');
+    </update>
+
+    <select id="showSTablesLike" resultType="com.gsta.ems.mock.entity.ts.ShowSTableEntity">
+        show stables like '#{sTableName}'
+    </select>
+
+    <select id="showTablesLike" resultType="com.gsta.ems.mock.entity.ts.ShowTableEntity">
+        show tables like '#{tableName}'
+    </select>
+
+
+</mapper>
