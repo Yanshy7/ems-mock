@@ -7,6 +7,8 @@ import com.gsta.ems.mock.service.ts.EDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @DS("jetlinks-ts")
 public class EDataServiceImpl implements EDataService {
@@ -22,6 +24,11 @@ public class EDataServiceImpl implements EDataService {
     @Override
     public void saveMockEData(String tableName, PropertiesEModbus e) {
         eDataMapper.saveMockEData(tableName,e);
+    }
+
+    @Override
+    public List<Float> queryData(){
+       return eDataMapper.queryData();
     }
 
 }

@@ -19,6 +19,6 @@ public class GMeterServiceImpl extends ServiceImpl<GMeterMapper, GMeterEntity> i
 
     @Override
     public List<GMeterEntity> queryList() {
-        return null;
+        return gMeterMapper.queryList();
     }
 }

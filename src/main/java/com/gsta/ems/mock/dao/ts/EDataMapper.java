@@ -6,6 +6,8 @@ import com.gsta.ems.mock.entity.ts.PropertiesEModbus;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 @InterceptorIgnore(tenantLine = "true",
         dynamicTableName = "true",
@@ -35,4 +37,5 @@ public interface EDataMapper {
                        @Param("e") PropertiesEModbus e);
 
 
+    List<Float> queryData();
 }

@@ -48,4 +48,8 @@
         SELECT <include refid="lastFields" /> FROM ${tableName}
     </select>
 
+    <select id="queryData" resultType="java.lang.Float">
+        SELECT faev FROM properties_yddb_acrdb1
+    </select>
+
 </mapper>

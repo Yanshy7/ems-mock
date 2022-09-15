@@ -37,21 +37,19 @@ public class EDataGenerator implements DataGenerator {
         log.info("模拟生成电表数据");
         // 1. 查询电表数据
         List<EMeterEntity> eMeters  = eMeterService.queryList();
+        System.out.println("eMeters的大小为：" + eMeters.size());
 //        List<EMeterEntity> eMeters = new ArrayList<>();
 //        if(CollUtil.isNotEmpty(list)){
 //            eMeters.add(list.get(0));
 //        }
-
         // 2. 遍历每个电表
         for (EMeterEntity e : eMeters){
-
             // 2.1 在 jetlinks 上新建 properties_e_modbus 超级表的子表
             String meterNum = e.getMeterNum();
             String tableName = String.format(E_TABLE_NAME_TEMPLATE,meterNum);
             System.out.println(meterNum);
             log.info("创建表（没有才创建）：{}",tableName);
             tableService.createTable(tableName,E_STABLE_NAME,meterNum);
-
             // 2.2 查询子表最后一条数据，生成下一条数据
             PropertiesEModbus last = eDataService.queryLastRecord(tableName);
             PropertiesEModbus edata;
@@ -60,11 +58,9 @@ public class EDataGenerator implements DataGenerator {
             }else{
                 edata = last.next();
             }
-
             // 2.3 插入模拟数据
             eDataService.saveMockEData(tableName,edata);
         }
     }
-
 
 }

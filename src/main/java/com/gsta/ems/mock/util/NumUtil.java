@@ -15,8 +15,8 @@ public class NumUtil {
      * @return
      */
     public static Double genNum(double max) {
-        double d = RandomUtil.randomDouble(0.0, max);
-        double dd = NumberUtil.round(d, 3).doubleValue();
+        double d = RandomUtil.randomDouble(0.0,max);
+        double dd = NumberUtil.round(d, 5).doubleValue();
         return dd;
     }
 

@@ -22,5 +22,4 @@ public class EMeterServiceImpl extends ServiceImpl<EMeterMapper, EMeterEntity> i
         return eMeterMapper.queryList();
     }
 
-
 }

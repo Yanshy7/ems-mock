@@ -18,5 +18,4 @@ public interface GMeterMapper extends BaseMapper<GMeterEntity> {
      * @return
      */
     public List<GMeterEntity> queryList();
-
 }

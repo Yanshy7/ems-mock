@@ -16,7 +16,6 @@ import java.util.Date;
 @TableName("biz_electric_meter")
 public class EMeterEntity {
 
-
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 

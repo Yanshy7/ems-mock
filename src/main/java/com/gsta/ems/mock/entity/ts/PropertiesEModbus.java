@@ -3,8 +3,10 @@ package com.gsta.ems.mock.entity.ts;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.gsta.ems.mock.util.NumUtil;
+import com.gsta.ems.mock.util.Simulation;
 import lombok.Data;
 
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -60,33 +62,39 @@ public class PropertiesEModbus {
         mock.setTs(ts);
         mock.setId(id);
         mock.setCreatetime(ts);
-        mock.setFaev(NumUtil.genNum(10.0));
+
+        mock.setFaev(NumUtil.genNum(531.59998));
         mock.setBaev(NumUtil.genNum(10.0));
-        mock.setFrev(NumUtil.genNum(10.0));
-        mock.setBrev(NumUtil.genNum(10.0));
-        mock.setPt(NumUtil.genNum(10.0));
-        mock.setPa(NumUtil.genNum(10.0));
-        mock.setPb(NumUtil.genNum(10.0));
-        mock.setPc(NumUtil.genNum(10.0));
-        mock.setQt(NumUtil.genNum(10.0));
-        mock.setQa(NumUtil.genNum(10.0));
-        mock.setQb(NumUtil.genNum(10.0));
-        mock.setQc(NumUtil.genNum(10.0));
-        mock.setSt(NumUtil.genNum(10.0));
-        mock.setSa(NumUtil.genNum(10.0));
-        mock.setSb(NumUtil.genNum(10.0));
-        mock.setSc(NumUtil.genNum(10.0));
-        mock.setPft(NumUtil.genNum(10.0));
-        mock.setPfa(NumUtil.genNum(10.0));
-        mock.setPfb(NumUtil.genNum(10.0));
-        mock.setPfc(NumUtil.genNum(10.0));
-        mock.setVa(NumUtil.genNum(10.0));
-        mock.setVb(NumUtil.genNum(10.0));
-        mock.setVc(NumUtil.genNum(10.0));
-        mock.setCa(NumUtil.genNum(10.0));
-        mock.setCb(NumUtil.genNum(10.0));
-        mock.setCc(NumUtil.genNum(10.0));
-        mock.setEnf(NumUtil.genNum(10.0));
+        mock.setFrev(NumUtil.genNum(0.60000));
+        mock.setBrev(NumUtil.genNum(434.19998));
+
+        mock.setPa(NumUtil.genNum(0.120000000));
+        mock.setPb(NumUtil.genNum(0.100000000));
+        mock.setPc(NumUtil.genNum(0.380000000));
+        mock.setPt(mock.getPa() + mock.getPb() + mock.getPc());
+
+        mock.setQa(NumUtil.genNum(0.060000000));
+        mock.setQb(NumUtil.genNum(0.140000000));
+        mock.setQc(NumUtil.genNum(0.540000000));
+        mock.setQt(mock.getQa() + mock.getQb() + mock.getQc());
+
+        mock.setSa(NumUtil.genNum(0.140000000));
+        mock.setSb(NumUtil.genNum(0.140000000));
+        mock.setSc(NumUtil.genNum(0.640000000));
+        mock.setSt(mock.getSa() + mock.getSb() + mock.getSc());
+
+        mock.setPfa(NumUtil.genNum(0.891000000));
+        mock.setPfb(NumUtil.genNum(0.10000000));
+        mock.setPfc(NumUtil.genNum(0.581000000));
+        mock.setPft(mock.getPfa() + mock.getPfb() + mock.getPfc());
+
+        mock.setVa(219.89999400);
+        mock.setVb(220.399994000 );
+        mock.setVc(220.0000);
+        mock.setCa(0.60000);
+        mock.setCb(0.0000);
+        mock.setCc(3.4000);
+        mock.setEnf(50.0000);
         return mock;
     }
 
@@ -99,36 +107,45 @@ public class PropertiesEModbus {
         long ts = System.currentTimeMillis();
         String id = UUID.randomUUID().toString().replaceAll("-", "");
         PropertiesEModbus next = new PropertiesEModbus();
+        Random r = new Random();
+
         next.setTs(ts);
         next.setId(id);
         next.setCreatetime(ts);
-        next.setFaev(faev == null ? NumUtil.genNum(10.0) : faev + NumUtil.genNum(10.0));
-        next.setBaev(baev == null ? NumUtil.genNum(10.0) : baev + NumUtil.genNum(10.0));
-        next.setFrev(frev == null ? NumUtil.genNum(10.0) : frev + NumUtil.genNum(10.0));
-        next.setBrev(brev == null ? NumUtil.genNum(10.0) : brev + NumUtil.genNum(10.0));
-        next.setPt(pt == null ? NumUtil.genNum(10.0) : pt + NumUtil.genNum(10.0));
-        next.setPa(pa == null ? NumUtil.genNum(10.0) : pa + NumUtil.genNum(10.0));
-        next.setPb(pb == null ? NumUtil.genNum(10.0) : pb + NumUtil.genNum(10.0));
-        next.setPc(pc == null ? NumUtil.genNum(10.0) : pc + NumUtil.genNum(10.0));
-        next.setQt(qt == null ? NumUtil.genNum(10.0) : qt + NumUtil.genNum(10.0));
-        next.setQa(qa == null ? NumUtil.genNum(10.0) : qa + NumUtil.genNum(10.0));
-        next.setQb(qb == null ? NumUtil.genNum(10.0) : qb + NumUtil.genNum(10.0));
-        next.setQc(qc == null ? NumUtil.genNum(10.0) : qc + NumUtil.genNum(10.0));
-        next.setSt(st == null ? NumUtil.genNum(10.0) : st + NumUtil.genNum(10.0));
-        next.setSa(sa == null ? NumUtil.genNum(10.0) : sa + NumUtil.genNum(10.0));
-        next.setSb(sb == null ? NumUtil.genNum(10.0) : sb + NumUtil.genNum(10.0));
-        next.setSc(sc == null ? NumUtil.genNum(10.0) : sc + NumUtil.genNum(10.0));
-        next.setPft(pft == null ? NumUtil.genNum(10.0) : pft + NumUtil.genNum(10.0));
-        next.setPfa(pfa == null ? NumUtil.genNum(10.0) : pfa + NumUtil.genNum(10.0));
-        next.setPfb(pfb == null ? NumUtil.genNum(10.0) : pfb + NumUtil.genNum(10.0));
-        next.setPfc(pfc == null ? NumUtil.genNum(10.0) : pfc + NumUtil.genNum(10.0));
-        next.setVa(va == null ? NumUtil.genNum(10.0) : va + NumUtil.genNum(10.0));
-        next.setVb(vb == null ? NumUtil.genNum(10.0) : vb + NumUtil.genNum(10.0));
-        next.setVc(vc == null ? NumUtil.genNum(10.0) : vc + NumUtil.genNum(10.0));
-        next.setCa(ca == null ? NumUtil.genNum(10.0) : ca + NumUtil.genNum(10.0));
-        next.setCb(cb == null ? NumUtil.genNum(10.0) : cb + NumUtil.genNum(10.0));
-        next.setCc(cc == null ? NumUtil.genNum(10.0) : cc + NumUtil.genNum(10.0));
-        next.setEnf(enf == null ? NumUtil.genNum(10.0) : enf + NumUtil.genNum(10.0));
+
+        next.setFaev(faev == null ? NumUtil.genNum(531.59998) : faev + Simulation.getFaevNum());
+        next.setBaev(baev == null ? NumUtil.genNum(10.0) : baev);
+        next.setFrev(frev == null ? NumUtil.genNum(0.60000) : frev + Simulation.getFrevNum());
+        next.setBrev(brev == null ? NumUtil.genNum(434.19998) : brev + Simulation.getBrevNum());
+
+        next.setPa(pa == null ? NumUtil.genNum(0.120000000) : pa + Simulation.getPaNum());
+        next.setPb(pb == null ? NumUtil.genNum(0.10000000) : pb + Simulation.getPbNum());
+        next.setPc(pc == null ? NumUtil.genNum(0.380000000) : pc + Simulation.getPcNum());
+        next.setPt(pa + pb + pc);
+
+        next.setQa(qa == null ? NumUtil.genNum(0.060000000) : qa + Simulation.getQaNum());
+        next.setQb(qb == null ? NumUtil.genNum(-0.140000000) : Simulation.getQbNum());
+        next.setQc(qc == null ? NumUtil.genNum(-0.540000000) : Simulation.getQcNum());
+        next.setQt(qa + qb + qc);
+
+        next.setSa(sa == null ? NumUtil.genNum(0.140000000) : sa + Simulation.getSaNum());
+        next.setSb(sb == null ? NumUtil.genNum(0.140000000) : sb + Simulation.getSbNum());
+        next.setSc(sc == null ? NumUtil.genNum(0.640000000) : sc + Simulation.getScNum());
+        next.setSt(sa + sb +sc);
+
+        next.setPfa(pfa == null ? NumUtil.genNum(0.891000000) : pfa + Simulation.getPfaNum());
+        next.setPfb(pfb == null ? NumUtil.genNum(0.30000000) : pfb + Simulation.getPfbNum());
+        next.setPfc(pfc == null ? NumUtil.genNum(0.581000000) : pfc + Simulation.getPfcNum());
+        next.setPft(pfa + pfb + pfc);
+
+        next.setVa(219.899994000);
+        next.setVb(220.399994000 );
+        next.setVc(220.0000);
+        next.setCa(0.60000);
+        next.setCb(0.0000);
+        next.setCc(3.4000);
+        next.setEnf(50.0000);
+
         return next;
     }
 
