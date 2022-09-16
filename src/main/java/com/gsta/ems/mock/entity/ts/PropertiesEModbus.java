@@ -115,7 +115,7 @@ public class PropertiesEModbus {
 
         next.setFaev(faev == null ? NumUtil.genNum(531.59998) : faev + Simulation.getFaevNum());
         next.setBaev(baev == null ? NumUtil.genNum(10.0) : baev);
-        next.setFrev(frev == null ? NumUtil.genNum(0.60000) : frev + Simulation.getFrevNum());
+        next.setFrev(frev == null ? NumUtil.genNum(0.6000000) : frev + Simulation.getFrevNum());
         next.setBrev(brev == null ? NumUtil.genNum(434.19998) : brev + Simulation.getBrevNum());
 
         next.setPa(pa == null ? NumUtil.genNum(0.120000000) : pa + Simulation.getPaNum());
@@ -124,8 +124,8 @@ public class PropertiesEModbus {
         next.setPt(pa + pb + pc);
 
         next.setQa(qa == null ? NumUtil.genNum(0.060000000) : qa + Simulation.getQaNum());
-        next.setQb(qb == null ? NumUtil.genNum(-0.140000000) : Simulation.getQbNum());
-        next.setQc(qc == null ? NumUtil.genNum(-0.540000000) : Simulation.getQcNum());
+        next.setQb(qb == null ? NumUtil.genNum(-0.14000000) : qb + Simulation.getQbNum());
+        next.setQc(qc == null ? NumUtil.genNum(-0.540000000) :qc +  Simulation.getQcNum());
         next.setQt(qa + qb + qc);
 
         next.setSa(sa == null ? NumUtil.genNum(0.140000000) : sa + Simulation.getSaNum());
@@ -134,7 +134,7 @@ public class PropertiesEModbus {
         next.setSt(sa + sb +sc);
 
         next.setPfa(pfa == null ? NumUtil.genNum(0.891000000) : pfa + Simulation.getPfaNum());
-        next.setPfb(pfb == null ? NumUtil.genNum(0.30000000) : pfb + Simulation.getPfbNum());
+        next.setPfb(pfb == null ? NumUtil.genNum(0.300000000) : pfb + Simulation.getPfbNum());
         next.setPfc(pfc == null ? NumUtil.genNum(0.581000000) : pfc + Simulation.getPfcNum());
         next.setPft(pfa + pfb + pfc);
 

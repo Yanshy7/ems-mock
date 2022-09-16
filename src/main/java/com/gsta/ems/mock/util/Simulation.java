@@ -118,7 +118,7 @@ public class Simulation {
 
     public static double getPaNum(){
         if(paCount >= 6){
-            double num = r.nextGaussian() * Math.sqrt(PA_STD) + PA_MEAN;
+            double num = Math.abs(r.nextGaussian() * Math.sqrt(PA_STD) + PA_MEAN);
             paCount = 0;
             return num;
         }else{
@@ -129,7 +129,7 @@ public class Simulation {
 
     public static double getPbNum(){
         if(pbCount >= 6){
-            double num = r.nextGaussian() * Math.sqrt(PB_STD) + PB_MEAN;
+            double num = Math.abs(r.nextGaussian() * Math.sqrt(PB_STD) + PB_MEAN);
             pbCount = 0;
             return num;
         }else{
@@ -151,7 +151,7 @@ public class Simulation {
 
     public static double getQaNum(){
         if(qaCount >= 3){
-            double num = r.nextGaussian() * Math.sqrt(QA_STD) + QA_MEAN;
+            double num = Math.abs(r.nextGaussian() * Math.sqrt(QA_STD) + QA_MEAN);
             qaCount = 0;
             return num;
         }else{
@@ -174,11 +174,11 @@ public class Simulation {
 
     public static double getQcNum(){
         if(qcCount >= 3){
-            double num = r.nextGaussian() * Math.sqrt(QC_STD) + QC_MEAN;
-            qbCount = 0;
+            double num = Math.abs(r.nextGaussian() * Math.sqrt(QC_STD) + QC_MEAN);
+            qcCount = 0;
             return num;
         }else{
-            qbCount++;
+            qcCount++;
             return 0.0;
         }
     };
